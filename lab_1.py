@@ -3,9 +3,10 @@ from speechkit import Session, ShortAudioRecognition, RecognitionLongAudio, Spee
 from rev_ai import apiclient
 import requests
 import time
+import timeit
 
 # examples
-file_name_ru = 'data/NewYear1 (mp3cut.net).wav'
+file_name_ru = 'data/compress.wav'
 file_name_en = 'data/c_plus.mp3'
 
 # rev ai speach to text
@@ -77,8 +78,14 @@ option = st.selectbox(
 
 if st.button('do magic'):
     if option == 'yandex voice kit':
+        start_time = timeit.default_timer()
         st.write(yandex_voice_kit())
+        print(timeit.default_timer() - start_time)
     elif option == 'rev ai':
+        start_time = timeit.default_timer()
         st.write(getTextrevai())
+        print(timeit.default_timer() - start_time)
     elif option == 'AssembyAI':
+        start_time = timeit.default_timer()
         st.write(getTextAssembyAI())
+        print(timeit.default_timer() - start_time)

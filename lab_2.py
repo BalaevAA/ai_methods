@@ -31,6 +31,7 @@ if __name__ == '__main__':
     np.random.seed(42)
     torch.manual_seed(42)
     tok, model = load_tokenizer_and_model("sberbank-ai/rugpt3large_based_on_gpt2")
+    st.markdown("# Text generation")
     theme = st.text_area('start sentences')
     if st.button('continue text'):
         generated = generate(model, tok, theme, num_beams=10, max_length=250)
